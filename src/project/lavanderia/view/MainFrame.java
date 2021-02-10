@@ -41,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
         BGPanel = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
         TambahPesananPanel = new javax.swing.JPanel();
+        tambahAntrianView1 = new project.lavanderia.view.TambahAntrianView();
         DataPesananPanel = new javax.swing.JPanel();
         AmbilPesananPanel = new javax.swing.JPanel();
         PesananTerambilPanel = new javax.swing.JPanel();
@@ -220,11 +221,17 @@ public class MainFrame extends javax.swing.JFrame {
         TambahPesananPanel.setLayout(TambahPesananPanelLayout);
         TambahPesananPanelLayout.setHorizontalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGroup(TambahPesananPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         TambahPesananPanelLayout.setVerticalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(TambahPesananPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(394, Short.MAX_VALUE))
         );
 
         BGPanel.add(TambahPesananPanel, "card3");
@@ -386,5 +393,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private project.lavanderia.view.TambahAntrianView tambahAntrianView1;
     // End of variables declaration//GEN-END:variables
 }
