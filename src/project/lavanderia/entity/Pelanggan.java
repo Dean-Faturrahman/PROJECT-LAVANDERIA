@@ -6,6 +6,7 @@
 package project.lavanderia.entity;
 
 import java.util.Objects;
+import project.lavanderia.view.TambahAntrianView;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Pelanggan {
     private String jenis;
     private double berat;
     private double harga;
+    private TambahAntrianView view;
 
     public Pelanggan() {
     }
@@ -85,7 +87,6 @@ public class Pelanggan {
     }
 
     public void setHarga(double harga) { 
-        harga = berat * 3000;
         this.harga = harga;        
     }
 
