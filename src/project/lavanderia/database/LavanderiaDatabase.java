@@ -20,7 +20,7 @@ import project.lavanderia.service.PelangganDao;
 public class LavanderiaDatabase {
     private static Connection connection;
     private static PelangganDao pelangganDao;
-    private static AdminDao adminDao;
+    private static AdminDao adminDao; 
     
     public static PelangganDao getPelangganDao() throws SQLException {
         if (pelangganDao == null) {
@@ -40,9 +40,9 @@ public class LavanderiaDatabase {
         return connection;
     }
     
-     public static AdminDao getAdminDao() throws SQLException{
+    public static AdminDao getAdminDao() throws SQLException{
          
-         if (adminDao==null) {
+         if (adminDao == null) {
              adminDao = new AdminDaoImpl(getConnection());
          }
          return adminDao;

@@ -34,6 +34,61 @@ public class TabelPelangganModel extends AbstractTableModel{
     }
 
     @Override
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0:
+                return "NOID";
+            case 1:
+                return "NAMA";
+            case 2:
+                return "ALAMAT";
+            case 3:
+                return "TELP";
+            case 4:
+                return "JENIS";
+            case 5:
+                return "BERAT";
+            case 6:
+                return "HARGA";
+            default:
+                return null;
+        }
+    }
+
+    public boolean add(Pelanggan e) {
+        try {
+            return list.add(e);
+        } finally {
+           fireTableRowsInserted(getRowCount()-1, getRowCount()-1);
+        }   
+    }
+
+    public Pelanggan get(int index) {
+        return list.get(index);
+    }
+
+    public Pelanggan set(int index, Pelanggan element) {
+        try {
+        
+        return list.set(index, element);
+        } finally {
+            fireTableRowsUpdated(index, index);
+        }
+        
+    }
+
+    public Pelanggan remove(int index) {
+        try {
+        return list.remove(index);    
+        } finally {
+            fireTableRowsDeleted(index, index);
+        }
+        
+    }
+
+    
+    
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
             case 1:
