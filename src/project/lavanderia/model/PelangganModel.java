@@ -118,7 +118,7 @@ public class PelangganModel {
         pelanggan.setTelp(telp);
         pelanggan.setJenis(jenis);        
         pelanggan.setBerat(berat);
-        pelanggan.setHarga(harga);
+        pelanggan.setHarga(pelanggan.getHarga());
         
         dao.insertPelanggan(pelanggan);
         fireOnInsert(pelanggan);
