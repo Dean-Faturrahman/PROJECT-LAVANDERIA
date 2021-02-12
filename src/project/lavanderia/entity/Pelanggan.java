@@ -85,6 +85,7 @@ public class Pelanggan {
     }
 
     public void setHarga(double harga) { 
+        harga = berat * 3000;
         this.harga = harga;        
     }
 

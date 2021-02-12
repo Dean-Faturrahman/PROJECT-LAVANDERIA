@@ -43,10 +43,12 @@ public class MainFrame extends javax.swing.JFrame {
         TambahPesananPanel = new javax.swing.JPanel();
         tambahAntrianView1 = new project.lavanderia.view.TambahAntrianView();
         DataPesananPanel = new javax.swing.JPanel();
+        dataPesananView1 = new project.lavanderia.view.DataPesananView();
         AmbilPesananPanel = new javax.swing.JPanel();
         PesananTerambilPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         MenuPanel.setBackground(new java.awt.Color(121, 122, 240));
         MenuPanel.setPreferredSize(new java.awt.Dimension(256, 720));
@@ -67,9 +69,9 @@ public class MainFrame extends javax.swing.JFrame {
         DataBtnLayout.setHorizontalGroup(
             DataBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataBtnLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel4)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         DataBtnLayout.setVerticalGroup(
             DataBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,10 +96,10 @@ public class MainFrame extends javax.swing.JFrame {
         AmbilBtn.setLayout(AmbilBtnLayout);
         AmbilBtnLayout.setHorizontalGroup(
             AmbilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmbilBtnLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AmbilBtnLayout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
         AmbilBtnLayout.setVerticalGroup(
             AmbilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,9 +125,9 @@ public class MainFrame extends javax.swing.JFrame {
         TerambilBtnLayout.setHorizontalGroup(
             TerambilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TerambilBtnLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel6)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         TerambilBtnLayout.setVerticalGroup(
             TerambilBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +220,7 @@ public class MainFrame extends javax.swing.JFrame {
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1019, Short.MAX_VALUE)
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,37 +233,46 @@ public class MainFrame extends javax.swing.JFrame {
 
         tambahAntrianView1.setBackground(new java.awt.Color(255, 255, 255));
         tambahAntrianView1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tambahAntrianView1.setPreferredSize(new java.awt.Dimension(821, 552));
 
         javax.swing.GroupLayout TambahPesananPanelLayout = new javax.swing.GroupLayout(TambahPesananPanel);
         TambahPesananPanel.setLayout(TambahPesananPanelLayout);
         TambahPesananPanelLayout.setHorizontalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TambahPesananPanelLayout.createSequentialGroup()
-                .addGap(216, 216, 216)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TambahPesananPanelLayout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGap(97, 97, 97))
         );
         TambahPesananPanelLayout.setVerticalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TambahPesananPanelLayout.createSequentialGroup()
-                .addGap(153, 153, 153)
+                .addGap(71, 71, 71)
                 .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         BGPanel.add(TambahPesananPanel, "card3");
 
-        DataPesananPanel.setBackground(new java.awt.Color(255, 153, 204));
+        DataPesananPanel.setBackground(new java.awt.Color(250, 251, 255));
+
+        dataPesananView1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout DataPesananPanelLayout = new javax.swing.GroupLayout(DataPesananPanel);
         DataPesananPanel.setLayout(DataPesananPanelLayout);
         DataPesananPanelLayout.setHorizontalGroup(
             DataPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1021, Short.MAX_VALUE)
+            .addGroup(DataPesananPanelLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(dataPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         DataPesananPanelLayout.setVerticalGroup(
             DataPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(DataPesananPanelLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(dataPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         BGPanel.add(DataPesananPanel, "card4");
@@ -272,7 +283,7 @@ public class MainFrame extends javax.swing.JFrame {
         AmbilPesananPanel.setLayout(AmbilPesananPanelLayout);
         AmbilPesananPanelLayout.setHorizontalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1019, Short.MAX_VALUE)
         );
         AmbilPesananPanelLayout.setVerticalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +298,7 @@ public class MainFrame extends javax.swing.JFrame {
         PesananTerambilPanel.setLayout(PesananTerambilPanelLayout);
         PesananTerambilPanelLayout.setHorizontalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1019, Short.MAX_VALUE)
         );
         PesananTerambilPanelLayout.setVerticalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,12 +315,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(MenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BGPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BGPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
-            .addComponent(BGPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BGPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
@@ -403,23 +414,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel TambahBtn;
     private javax.swing.JPanel TambahPesananPanel;
     private javax.swing.JPanel TerambilBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private project.lavanderia.view.DataPesananView dataPesananView1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel panelDataPesanan;
-    private javax.swing.JPanel panelDataPesanan1;
-    private javax.swing.JTable tabelDataPesanan;
-    private javax.swing.JTable tabelDataPesanan1;
     private project.lavanderia.view.TambahAntrianView tambahAntrianView1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,6 @@
 package project.lavanderia.view;
 
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import project.lavanderia.controller.PelangganController;
 import project.lavanderia.entity.Pelanggan;
@@ -22,8 +21,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     public double harga;
     private PelangganModel model;
     private PelangganController controller;
-    public double total;
-    public double intBerat;
 
     /**
      * Creates new form TambahAntrianView
@@ -64,14 +61,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     public JComboBox<String> getCmbJenis() {
         return cmbJenis;
     }
-
-    public double getHarga() {
-        return harga;
-    }
-
-    public void setHarga(double harga) {
-        this.harga = harga;
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,7 +87,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         txtHarga = new javax.swing.JTextField();
         cmbJenis = new javax.swing.JComboBox<>();
         btnTambah = new javax.swing.JButton();
-        btnCekHarga = new javax.swing.JButton();
 
         jLabel1.setText("No ID");
 
@@ -152,7 +140,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             }
         });
 
-        txtHarga.setEditable(false);
         txtHarga.setBackground(new java.awt.Color(227, 237, 246));
         txtHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,13 +164,6 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             }
         });
 
-        btnCekHarga.setText("Cek Harga");
-        btnCekHarga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCekHargaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,20 +181,18 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNama, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                             .addComponent(cmbJenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCekHarga))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtBerat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)))))
+                                .addComponent(jLabel8))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtTelp, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                            .addComponent(txtAlamat)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -252,11 +230,10 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCekHarga))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btnTambah)
-                .addGap(24, 24, 24))
+                .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -287,37 +264,20 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     private void cmbJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJenisActionPerformed
         jenis = (String) cmbJenis.getSelectedItem();
         if ("Cuci Setrika".equals(jenis)) {
-            setHarga(5000);
+            harga = 5000;
         } else if ("Cuci Kering".equals(jenis)) {
-            setHarga(4000);
-        } else if ("Setrika Saja".equals(jenis)) {
-            setHarga(3000);
+            harga = 4000;
+        } else if ("Cuci Saja".equals(jenis)) {
+            harga = 3000;
         }
-        txtHarga.setText(null);
     }//GEN-LAST:event_cmbJenisActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         controller.insertPelangganView(this);
-        txtHarga.setText(null);
-        cmbJenis.setSelectedIndex(0);
     }//GEN-LAST:event_btnTambahActionPerformed
-
-    private void btnCekHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekHargaActionPerformed
-        jenis = (String) cmbJenis.getSelectedItem();
-        if ("----PILIH----".equals(jenis)){
-            JOptionPane.showMessageDialog(null, "Jenis laundry belum diisi!");
-        } else if (txtBerat.getText().equals("")||txtBerat.getText().equals("0.0")){
-            JOptionPane.showMessageDialog(null, "Berat belum diisi!");
-        } else {
-        intBerat = Double.parseDouble(String.valueOf(txtBerat.getText()));        
-        total = harga * intBerat;
-        txtHarga.setText(String.valueOf(total));
-        }
-    }//GEN-LAST:event_btnCekHargaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCekHarga;
     private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox<String> cmbJenis;
     private javax.swing.JLabel jLabel1;
