@@ -66,5 +66,20 @@ public class PelangganDaoImpl implements PelangganDao{
     public List<Pelanggan> selectAllPelanggan() throws pelangganException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void updatePelanggan(Pelanggan pelanggan) throws pelangganException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deletePelanggan(Integer id) throws pelangganException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void getPelanggan(Integer id) throws pelangganException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

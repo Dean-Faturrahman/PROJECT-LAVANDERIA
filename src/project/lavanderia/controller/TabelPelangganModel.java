@@ -91,19 +91,19 @@ public class TabelPelangganModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
-            case 1:
+            case 0:
                 return list.get(rowIndex).getNoid();
-            case 2:
+            case 1:
                 return list.get(rowIndex).getNama();
-            case 3:
+            case 2:
                 return list.get(rowIndex).getAlamat();
-            case 4:
+            case 3:
                 return list.get(rowIndex).getTelp();
-            case 5:
+            case 4:
                 return list.get(rowIndex).getJenis();
-            case 6:
+            case 5:
                 return list.get(rowIndex).getBerat();
-            case 7:
+            case 6:
                 return list.get(rowIndex).getHarga();
             default:
                 return null;
