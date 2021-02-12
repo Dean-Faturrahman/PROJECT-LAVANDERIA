@@ -109,6 +109,18 @@ public class PelangganModel {
         }
     }
     
+    protected void fireOnUpdate(Pelanggan pelanggan) {
+        if (listener != null) {
+            listener.onUpdate(pelanggan);
+        }
+    }
+    
+    protected void fireOnDelete() {
+        if (listener != null) {
+            listener.onDelete();
+        }
+    }
+    
     public void insertPelanggan() throws SQLException, pelangganException{
         PelangganDao dao = LavanderiaDatabase.getPelangganDao();
         
@@ -124,7 +136,28 @@ public class PelangganModel {
         fireOnInsert(pelanggan);
     }
     
+    public void updatePelanggan() throws SQLException, pelangganException{
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        
+        Pelanggan pelanggan = new Pelanggan();
+        pelanggan.setNama(nama);
+        pelanggan.setAlamat(alamat);
+        pelanggan.setTelp(telp);
+        pelanggan.setJenis(jenis);        
+        pelanggan.setBerat(berat);
+        pelanggan.setHarga(pelanggan.getHarga());
+        pelanggan.setNoid(noid);
+        
+        dao.updatePelanggan(pelanggan);
+        fireOnUpdate(pelanggan);
+    }
     
+    public void deletePelanggan() throws SQLException, pelangganException{
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        
+        dao.deletePelanggan(noid);
+        fireOnDelete();
+    }
 
     public void resetPelanggan() {
         setNama("");
