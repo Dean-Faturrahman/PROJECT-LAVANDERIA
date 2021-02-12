@@ -28,7 +28,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
         initComponents();
         model = new TabelPelangganModel();
         tabelDataPesanan.setModel(model);
-        getData();
+        getData();        
     }
 
     public void getData( ){
