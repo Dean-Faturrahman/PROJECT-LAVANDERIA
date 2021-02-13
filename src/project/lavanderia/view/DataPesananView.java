@@ -5,7 +5,15 @@
  */
 package project.lavanderia.view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import project.lavanderia.controller.PelangganController;
+import project.lavanderia.controller.TabelPelangganModel;
+import project.lavanderia.database.LavanderiaDatabase;
+import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.model.PelangganModel;
 
 /**
@@ -14,11 +22,40 @@ import project.lavanderia.model.PelangganModel;
  */
 public class DataPesananView extends javax.swing.JPanel {
 
-    private PelangganModel model;
-    private PelangganController controller;
+    
+    
+    private LavanderiaDatabase db;
+    private TabelPelangganModel model;
+    private Pelanggan pelanggan;
+    private DefaultTableModel tabModel;
     
     public DataPesananView() {
         initComponents();
+        model = new TabelPelangganModel();
+        TablePelanggan.setModel(model);
+        getData();        
+    }
+
+    public void getData( ){
+        try{
+            Statement stat = LavanderiaDatabase.getConnection().createStatement();
+            String sql  = "Select * from PELANGGAN";
+            ResultSet res   = stat.executeQuery(sql);
+            while(res.next()){
+                pelanggan = new Pelanggan();
+                pelanggan.setNoid(res.getInt("NOID"));
+                pelanggan.setNama(res.getString("NAMA"));
+                pelanggan.setAlamat(res.getString("ALAMAT"));
+                pelanggan.setTelp(res.getString("TELP"));
+                pelanggan.setJenis(res.getString("JENIS"));
+                pelanggan.setBerat(res.getDouble("BERAT"));
+                pelanggan.setHarga(res.getDouble("HARGA"));
+
+                model.add(pelanggan);
+            }
+        } catch(SQLException err){
+            JOptionPane.showMessageDialog(null, err.getMessage() );
+        }
     }
 
     /**
@@ -31,14 +68,14 @@ public class DataPesananView extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablePelanggan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(181, 174, 236));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablePelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,7 +86,7 @@ public class DataPesananView extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablePelanggan);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 48)); // NOI18N
         jLabel1.setText("Data Pesanan");
@@ -71,29 +108,28 @@ public class DataPesananView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(131, 131, 131)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)))
-                        .addGap(0, 122, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(0, 439, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(35, 35, 35)
                         .addComponent(jButton2)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(130, 130, 130)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -103,10 +139,10 @@ public class DataPesananView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablePelanggan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
