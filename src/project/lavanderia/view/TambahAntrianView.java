@@ -5,6 +5,8 @@
  */
 package project.lavanderia.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -19,11 +21,13 @@ import project.lavanderia.model.PelangganModel;
  */
 public class TambahAntrianView extends javax.swing.JPanel implements PelangganListener{
     public String jenis;
-    public double harga;
-    private PelangganModel model;
-    private PelangganController controller;
+    public double harga;    
     public double total;
     public double intBerat;
+    public String tanggal;
+    private PelangganModel model;
+    private PelangganController controller;
+    private Pelanggan pelanggan;
 
     /**
      * Creates new form TambahAntrianView
@@ -35,6 +39,23 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         controller = new PelangganController();
         controller.setModel(model);
         initComponents();
+        setTanggal(null);
+        txtTanggal.setText(getTanggal());
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {        
+        Date tgl = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");        
+        tanggal = s.format(tgl);
+        this.tanggal = tanggal;
+    }
+
+    public JTextField getTxtTanggal() {
+        return txtTanggal;
     }
 
     public JTextField getTxtAlamat() {
@@ -99,6 +120,8 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         cmbJenis = new javax.swing.JComboBox<>();
         btnTambah = new javax.swing.JButton();
         btnCekHarga = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtTanggal = new javax.swing.JTextField();
 
         jLabel1.setText("No ID");
 
@@ -184,6 +207,16 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             }
         });
 
+        jLabel9.setText("Tanggal");
+
+        txtTanggal.setEditable(false);
+        txtTanggal.setBackground(new java.awt.Color(227, 237, 246));
+        txtTanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTanggalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -210,7 +243,12 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                                 .addComponent(jLabel8))
                             .addComponent(txtTelp)
                             .addComponent(txtAlamat)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTanggal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -227,7 +265,9 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -315,6 +355,10 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
         }
     }//GEN-LAST:event_btnCekHargaActionPerformed
 
+    private void txtTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTanggalActionPerformed
+        
+    }//GEN-LAST:event_txtTanggalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCekHarga;
@@ -328,11 +372,13 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtAlamat;
     private javax.swing.JTextField txtBerat;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtTanggal;
     private javax.swing.JTextField txtTelp;
     // End of variables declaration//GEN-END:variables
 

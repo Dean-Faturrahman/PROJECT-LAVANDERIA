@@ -30,8 +30,8 @@ public class AmbilPesananView extends javax.swing.JPanel {
     public AmbilPesananView() {
         initComponents();
         model = new TabelPelangganModel();
-        tabelDataPesanan.setModel(model);
-        getData();        
+        tabelDataPesanan.setModel(model);        
+        getData();
     }
 
     public void getData( ){
@@ -42,6 +42,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 pelanggan = new Pelanggan();
                 pelanggan.setNoid(res.getInt("NOID"));
+                pelanggan.setTanggal(res.getString("TANGGAL"));
                 pelanggan.setNama(res.getString("NAMA"));
                 pelanggan.setAlamat(res.getString("ALAMAT"));
                 pelanggan.setTelp(res.getString("TELP"));
@@ -59,7 +60,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
     private void cariData(String key){
         try{
             
-            Object[] judul_kolom = {"NOID", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
+            Object[] judul_kolom = {"NOID", "TANGGAL", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
             tabModel=new DefaultTableModel(null,judul_kolom);
             tabelDataPesanan.setModel(tabModel);
             
@@ -69,6 +70,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 Object[] data={
                     res.getString("NOID"),
+                    res.getString("TANGGAL"),
                     res.getString("NAMA"),
                     res.getString("ALAMAT"),
                     res.getString("TELP"),
@@ -217,8 +219,8 @@ public class AmbilPesananView extends javax.swing.JPanel {
         try{
             int selectedRow = tabelDataPesanan.getSelectedRow();
             Object rowID = model.getValueAt(selectedRow,0);
-            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
-                          + "(SELECT `NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
+            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
+                          + "(SELECT `NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
             
             String delete = "DELETE FROM pelanggan WHERE NOID = "+ rowID +"";
             

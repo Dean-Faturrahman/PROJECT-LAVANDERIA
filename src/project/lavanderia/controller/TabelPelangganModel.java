@@ -30,7 +30,7 @@ public class TabelPelangganModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 8;
     }
 
     @Override
@@ -39,16 +39,18 @@ public class TabelPelangganModel extends AbstractTableModel{
             case 0:
                 return "NOID";
             case 1:
-                return "NAMA";
+                return "TANGGAL";
             case 2:
-                return "ALAMAT";
+                return "NAMA";
             case 3:
-                return "TELP";
+                return "ALAMAT";
             case 4:
-                return "JENIS";
+                return "TELP";
             case 5:
-                return "BERAT";
+                return "JENIS";
             case 6:
+                return "BERAT";
+            case 7:
                 return "HARGA";
             default:
                 return null;
@@ -94,16 +96,18 @@ public class TabelPelangganModel extends AbstractTableModel{
             case 0:
                 return list.get(rowIndex).getNoid();
             case 1:
-                return list.get(rowIndex).getNama();
+                return list.get(rowIndex).getTanggal();
             case 2:
-                return list.get(rowIndex).getAlamat();
+                return list.get(rowIndex).getNama();
             case 3:
-                return list.get(rowIndex).getTelp();
+                return list.get(rowIndex).getAlamat();
             case 4:
-                return list.get(rowIndex).getJenis();
+                return list.get(rowIndex).getTelp();
             case 5:
-                return list.get(rowIndex).getBerat();
+                return list.get(rowIndex).getJenis();
             case 6:
+                return list.get(rowIndex).getBerat();
+            case 7:
                 return list.get(rowIndex).getHarga();
             default:
                 return null;

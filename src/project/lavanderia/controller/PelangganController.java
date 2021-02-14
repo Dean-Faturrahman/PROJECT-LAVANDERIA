@@ -27,6 +27,7 @@ public class PelangganController {
         String jenis = (String) view.getCmbJenis().getSelectedItem();
         String berat = view.getTxtBerat().getText();
         String harga = view.getTxtHarga().getText();
+        String tanggal = view.getTxtTanggal().getText();
         
         if (nama.trim().equals("")){
             JOptionPane.showMessageDialog(view, "Nama Masih Kosong");
@@ -37,6 +38,7 @@ public class PelangganController {
         } else if (view.getTxtHarga().getText().equals("")) {
             JOptionPane.showMessageDialog(view, "Klik 'cek harga' dahulu");
         } else {
+            model.setTanggal(tanggal);
             model.setNama(nama);
             model.setAlamat(alamat);
             model.setTelp(telp);
