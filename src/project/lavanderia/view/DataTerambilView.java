@@ -44,6 +44,7 @@ public class DataTerambilView extends javax.swing.JPanel {
             while(res.next()){
                 pesanan = new Pesanan();
                 pesanan.setNoid(res.getInt("NOID"));
+                pesanan.setTanggal(res.getString("TANGGAL"));
                 pesanan.setNama(res.getString("NAMA"));
                 pesanan.setAlamat(res.getString("ALAMAT"));
                 pesanan.setTelp(res.getString("TELP"));

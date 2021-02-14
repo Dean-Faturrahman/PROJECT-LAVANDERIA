@@ -44,6 +44,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 pelanggan = new Pelanggan();
                 pelanggan.setNoid(res.getInt("NOID"));
+                pelanggan.setTanggal(res.getString("TANGGAL"));
                 pelanggan.setNama(res.getString("NAMA"));
                 pelanggan.setAlamat(res.getString("ALAMAT"));
                 pelanggan.setTelp(res.getString("TELP"));
@@ -72,6 +73,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 Object[] data={
                     res.getString("NOID"),
+                    res.getString("TANGGAL"),
                     res.getString("NAMA"),
                     res.getString("ALAMAT"),
                     res.getString("TELP"),
@@ -216,8 +218,8 @@ public class AmbilPesananView extends javax.swing.JPanel {
         try{
             int selectedRow = tabelDataPesanan.getSelectedRow();
             Object rowID = model.getValueAt(selectedRow,0);
-            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
-                          + "(SELECT `NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
+            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
+                          + "(SELECT `NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
             
             String delete = "DELETE FROM pelanggan WHERE NOID = "+ rowID +"";
             

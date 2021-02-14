@@ -19,6 +19,7 @@ public class Pesanan {
     private String jenis;
     private double berat;
     private double harga;
+    private String tanggal;
 
     public int getNoid() {
         return noid;
@@ -74,6 +75,14 @@ public class Pesanan {
 
     public void setHarga(double harga) {
         this.harga = harga;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
     @Override

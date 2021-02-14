@@ -42,6 +42,7 @@ public class DataPesananView extends javax.swing.JPanel {
             while(res.next()){
                 pelanggan = new Pelanggan();
                 pelanggan.setNoid(res.getInt("NOID"));
+                pelanggan.setTanggal(res.getString("TANGGAL"));
                 pelanggan.setNama(res.getString("NAMA"));
                 pelanggan.setAlamat(res.getString("ALAMAT"));
                 pelanggan.setTelp(res.getString("TELP"));

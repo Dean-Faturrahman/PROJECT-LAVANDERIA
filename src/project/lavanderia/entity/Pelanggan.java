@@ -19,6 +19,7 @@ public class Pelanggan {
     private String jenis;
     private double berat;
     private double harga;
+    private String tanggal;
 
     public Pelanggan() {
     }
@@ -88,20 +89,27 @@ public class Pelanggan {
         this.harga = harga;        
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.noid;
-        hash = 89 * hash + Objects.hashCode(this.nama);
-        hash = 89 * hash + Objects.hashCode(this.alamat);
-        hash = 89 * hash + Objects.hashCode(this.telp);
-        hash = 89 * hash + Objects.hashCode(this.jenis);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.berat) ^ (Double.doubleToLongBits(this.berat) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.harga) ^ (Double.doubleToLongBits(this.harga) >>> 32));
-        return hash;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 13 * hash + this.noid;
+        hash = 13 * hash + Objects.hashCode(this.nama);
+        hash = 13 * hash + Objects.hashCode(this.alamat);
+        hash = 13 * hash + Objects.hashCode(this.telp);
+        hash = 13 * hash + Objects.hashCode(this.jenis);
+        hash = 13 * hash + (int) (Double.doubleToLongBits(this.berat) ^ (Double.doubleToLongBits(this.berat) >>> 32));
+        hash = 13 * hash + (int) (Double.doubleToLongBits(this.harga) ^ (Double.doubleToLongBits(this.harga) >>> 32));
+        hash = 13 * hash + Objects.hashCode(this.tanggal);
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -118,10 +126,10 @@ public class Pelanggan {
         if (this.noid != other.noid) {
             return false;
         }
-        if (this.berat != other.berat) {
+        if (Double.doubleToLongBits(this.berat) != Double.doubleToLongBits(other.berat)) {
             return false;
         }
-        if (this.harga != other.harga) {
+        if (Double.doubleToLongBits(this.harga) != Double.doubleToLongBits(other.harga)) {
             return false;
         }
         if (!Objects.equals(this.nama, other.nama)) {
@@ -136,7 +144,12 @@ public class Pelanggan {
         if (!Objects.equals(this.jenis, other.jenis)) {
             return false;
         }
+        if (!Objects.equals(this.tanggal, other.tanggal)) {
+            return false;
+        }
         return true;
     }
+
+    
     
 }

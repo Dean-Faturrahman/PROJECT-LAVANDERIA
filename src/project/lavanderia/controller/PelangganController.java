@@ -27,6 +27,7 @@ public class PelangganController {
         String jenis = (String) view.getCmbJenis().getSelectedItem();
         String berat = view.getTxtBerat().getText();
         String harga = view.getTxtHarga().getText();
+        String tanggal = view.getTxtTanggal().getText();
         
         if (nama.trim().equals("")){
             JOptionPane.showMessageDialog(view, "Nama Masih Kosong");
@@ -45,6 +46,7 @@ public class PelangganController {
             model.setBerat(vberat);
             double vharga = Double.parseDouble(harga);
             model.setHarga(vharga);
+            model.setTanggal(tanggal);
             try {
                 model.insertPelanggan();
                 JOptionPane.showMessageDialog(view, "Data Pelanggan Berhasil Ditambahkan");
