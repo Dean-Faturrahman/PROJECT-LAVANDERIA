@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import project.lavanderia.controller.AdminController;
 import project.lavanderia.entity.Admin;
 import project.lavanderia.impl.AdminDaoImpl;
-import project.lavanderia.listener.AdminListener;
+import project.lavanderia.event.AdminListener;
 import project.lavanderia.model.AdminModel;
 
 /**

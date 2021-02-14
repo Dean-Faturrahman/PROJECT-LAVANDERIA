@@ -14,8 +14,10 @@ import project.lavanderia.error.pelangganException;
  * @author Dean
  */
 public interface PelangganDao {
-    
     public void insertPelanggan(Pelanggan pelanggan) throws pelangganException;
+    public void updatePelanggan(Pelanggan pelanggan) throws pelangganException;
+    public void deletePelanggan(Integer id) throws pelangganException;
+    public void getPelanggan(Integer id) throws pelangganException;
     
     public List<Pelanggan> selectAllPelanggan() throws pelangganException;
 }

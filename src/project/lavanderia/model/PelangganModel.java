@@ -24,6 +24,8 @@ public class PelangganModel {
     private String jenis;
     private double berat;
     private double harga;
+    private String tanggal;
+    
     private PelangganListener listener;
 
     public PelangganListener getListener() {
@@ -96,6 +98,14 @@ public class PelangganModel {
         this.harga = harga;
         fireOnChange();
     }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
     
     protected void fireOnChange() {
         if (listener != null){
@@ -109,7 +119,35 @@ public class PelangganModel {
         }
     }
     
+    protected void fireOnUpdate(Pelanggan pelanggan) {
+        if (listener != null) {
+            listener.onUpdate(pelanggan);
+        }
+    }
+    
+    protected void fireOnDelete() {
+        if (listener != null) {
+            listener.onDelete();
+        }
+    }
+    
     public void insertPelanggan() throws SQLException, pelangganException{
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        
+        Pelanggan pelanggan = new Pelanggan();
+        pelanggan.setNama(nama);
+        pelanggan.setTanggal(tanggal);
+        pelanggan.setAlamat(alamat);
+        pelanggan.setTelp(telp);
+        pelanggan.setJenis(jenis);        
+        pelanggan.setBerat(berat);
+        pelanggan.setHarga(harga);
+        
+        dao.insertPelanggan(pelanggan);
+        fireOnInsert(pelanggan);
+    }
+    
+    public void updatePelanggan() throws SQLException, pelangganException{
         PelangganDao dao = LavanderiaDatabase.getPelangganDao();
         
         Pelanggan pelanggan = new Pelanggan();
@@ -118,10 +156,21 @@ public class PelangganModel {
         pelanggan.setTelp(telp);
         pelanggan.setJenis(jenis);        
         pelanggan.setBerat(berat);
-        pelanggan.setHarga(pelanggan.getHarga());
+        pelanggan.setHarga(harga);
+        pelanggan.setNoid(noid);
         
-        dao.insertPelanggan(pelanggan);
-        fireOnInsert(pelanggan);
+        dao.updatePelanggan(pelanggan);
+        fireOnUpdate(pelanggan);
+    }
+    
+
+    
+    
+    public void deletePelanggan() throws SQLException, pelangganException{
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        
+        dao.deletePelanggan(noid);
+        fireOnDelete();
     }
 
     public void resetPelanggan() {
