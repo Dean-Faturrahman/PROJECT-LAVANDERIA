@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.error.pelangganException;
 import project.lavanderia.service.PelangganDao;
@@ -61,6 +63,7 @@ public class PelangganDaoImpl implements PelangganDao{
             }
         }
     }
+    
 
     @Override
     public List<Pelanggan> selectAllPelanggan() throws pelangganException {
@@ -81,5 +84,7 @@ public class PelangganDaoImpl implements PelangganDao{
     public void getPelanggan(Integer id) throws pelangganException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

@@ -152,6 +152,13 @@ public class PelangganModel {
         fireOnUpdate(pelanggan);
     }
     
+    public void ambilPelanggan() throws SQLException, pelangganException{
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        
+        
+    }
+    
+    
     public void deletePelanggan() throws SQLException, pelangganException{
         PelangganDao dao = LavanderiaDatabase.getPelangganDao();
         
