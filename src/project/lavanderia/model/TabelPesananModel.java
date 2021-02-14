@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project.lavanderia.controller;
+package project.lavanderia.model;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import project.lavanderia.entity.Pelanggan;
+import project.lavanderia.entity.Pesanan;
 
 /**
  *
- * @author ACER
+ * @author ryzen
  */
-public class TabelPelangganModel extends AbstractTableModel{
-    
-    private List<Pelanggan> list = new ArrayList<Pelanggan>();
+public class TabelPesananModel extends AbstractTableModel{
+    private List<Pesanan> list = new ArrayList<Pesanan>();
 
-    public void setList(List<Pelanggan> list) {
+    public void setList(List<Pesanan> list) {
         this.list = list;
     }
     
@@ -57,7 +57,7 @@ public class TabelPelangganModel extends AbstractTableModel{
         }
     }
 
-    public boolean add(Pelanggan e) {
+    public boolean add(Pesanan e) {
         try {
             return list.add(e);
         } finally {
@@ -65,28 +65,7 @@ public class TabelPelangganModel extends AbstractTableModel{
         }   
     }
 
-    public Pelanggan get(int index) {
-        return list.get(index);
-    }
 
-    public Pelanggan set(int index, Pelanggan element) {
-        try {
-        
-        return list.set(index, element);
-        } finally {
-            fireTableRowsUpdated(index, index);
-        }
-        
-    }
-
-    public Pelanggan remove(int index) {
-        try {
-        return list.remove(index);    
-        } finally {
-            fireTableRowsDeleted(index, index);
-        }
-        
-    }
 
     
     

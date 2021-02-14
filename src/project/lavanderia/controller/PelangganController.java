@@ -26,6 +26,8 @@ public class PelangganController {
         String telp = view.getTxtTelp().getText();
         String jenis = (String) view.getCmbJenis().getSelectedItem();
         String berat = view.getTxtBerat().getText();
+        String harga = view.getTxtHarga().getText();
+        String tanggal = view.getTxtTanggal().getText();
         
         if (nama.trim().equals("")){
             JOptionPane.showMessageDialog(view, "Nama Masih Kosong");
@@ -33,6 +35,8 @@ public class PelangganController {
             JOptionPane.showMessageDialog(view, "Nama depan tidak boleh lebih dari 255");
         } else if (telp.length() > 12) {
             JOptionPane.showMessageDialog(view, "Nomor telepon tidak boleh lebih dari 12 digit");
+        } else if (view.getTxtHarga().getText().equals("")) {
+            JOptionPane.showMessageDialog(view, "Klik 'cek harga' dahulu");
         } else {
             model.setNama(nama);
             model.setAlamat(alamat);
@@ -40,6 +44,9 @@ public class PelangganController {
             model.setJenis(jenis);
             double vberat = Double.parseDouble(berat);
             model.setBerat(vberat);
+            double vharga = Double.parseDouble(harga);
+            model.setHarga(vharga);
+            model.setTanggal(tanggal);
             try {
                 model.insertPelanggan();
                 JOptionPane.showMessageDialog(view, "Data Pelanggan Berhasil Ditambahkan");
