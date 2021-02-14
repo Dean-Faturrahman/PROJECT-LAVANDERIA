@@ -5,6 +5,9 @@
  */
 package project.lavanderia.view;
 
+import project.lavanderia.error.pelangganException;
+import java.sql.SQLException;
+
 /**
  *
  * @author ryzen
@@ -16,6 +19,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+    }
+    
+    public void loadDatabase() throws SQLException, pelangganException {
+        tambahAntrianView1.loadDatabase();
     }
 
     /**

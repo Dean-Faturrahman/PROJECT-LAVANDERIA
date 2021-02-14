@@ -7,7 +7,9 @@ package project.lavanderia.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,11 +29,8 @@ public class PelangganDaoImpl implements PelangganDao{
             + " (?,?,?,?,?,?,?)";
     
     private final String updatePelanggan = "UPDATE PELANGGAN SET NAMA=?, "
-            + "ALAMAT=?, TELP=?, JENIS=?, BERAT=?, HARGA=? WHERE NOID=?";
+            + "ALAMAT=?, TELP=?, JENIS=?, BERAT=? WHERE NOID=?";
   
-    private final String deletePelanggan = "DELETE FROM PELANGGAN WHERE NOID=?";
-    
-    private final String getByNoid = "SELECT * FROM PELANGGAN WHERE NOID=?";
     
     public PelangganDaoImpl(Connection connection) {
         this.connection = connection;
@@ -43,7 +42,7 @@ public class PelangganDaoImpl implements PelangganDao{
         
         try {
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement(insertPelanggan);
+            statement = connection.prepareStatement(insertPelanggan, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, pelanggan.getNama());
             statement.setString(2, pelanggan.getTanggal());
             statement.setString(3, pelanggan.getAlamat());
@@ -52,6 +51,10 @@ public class PelangganDaoImpl implements PelangganDao{
             statement.setDouble(6, pelanggan.getBerat());
             statement.setDouble(7, pelanggan.getHarga());
             statement.executeUpdate();
+            ResultSet result  = statement.getGeneratedKeys();
+            if (result.next()) {
+                pelanggan.setNoid(result.getInt(1));
+            }
             connection.commit();
         } catch (SQLException e) {
             try {
@@ -75,23 +78,17 @@ public class PelangganDaoImpl implements PelangganDao{
     
 
     @Override
-    public List<Pelanggan> selectAllPelanggan() throws pelangganException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void updatePelanggan(Pelanggan pelanggan) throws pelangganException {
         PreparedStatement statement = null;
         try {
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement(insertPelanggan);
+            statement = connection.prepareStatement(updatePelanggan);
             statement.setString(1, pelanggan.getNama());
             statement.setString(2, pelanggan.getAlamat());
             statement.setString(3, pelanggan.getTelp());
             statement.setString(4, pelanggan.getJenis());
             statement.setDouble(5, pelanggan.getBerat());
-            statement.setDouble(6, pelanggan.getHarga());
-            statement.setInt(7, pelanggan.getNoid());
+            statement.setInt(6, pelanggan.getNoid());
             statement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
@@ -124,6 +121,8 @@ public class PelangganDaoImpl implements PelangganDao{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
+    @Override
+    public List<Pelanggan> selectAllPelanggan() throws pelangganException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -6,10 +6,12 @@
 package project.lavanderia.main;
 
 import java.sql.SQLException;
+import javax.swing.SwingUtilities;
 import project.lavanderia.database.LavanderiaDatabase;
 import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.error.pelangganException;
 import project.lavanderia.service.PelangganDao;
+import project.lavanderia.view.MainFrame;
 
 /**
  *
@@ -20,17 +22,20 @@ public class ProjectLavanderia {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException, pelangganException {
-        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
-        Pelanggan pelanggan = new Pelanggan();
-        pelanggan.setNama("Dean Ghifari");
-        pelanggan.setAlamat("Buah Batu");
-        pelanggan.setTelp("088801845870");
-        pelanggan.setJenis("Cuci Setrika");
-        pelanggan.setBerat(3.5);
-        pelanggan.setHarga(pelanggan.getHarga());
-        
-        dao.insertPelanggan(pelanggan);
-    }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MainFrame pelanggan = new MainFrame();
+                    pelanggan.loadDatabase();
+                    pelanggan.setVisible(true);
+                } catch (SQLException ex) {
+                } catch (PelangganException ex) {
+                }
+
+            }
+        });
+    }   
+ }    
     
-}

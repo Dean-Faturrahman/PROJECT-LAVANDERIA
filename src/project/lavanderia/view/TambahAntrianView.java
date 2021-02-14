@@ -18,9 +18,11 @@ import javax.swing.table.DefaultTableModel;
 import project.lavanderia.controller.PelangganController;
 import project.lavanderia.database.LavanderiaDatabase;
 import project.lavanderia.entity.Pelanggan;
+import project.lavanderia.error.pelangganException;
 import project.lavanderia.event.PelangganListener;
 import project.lavanderia.model.PelangganModel;
 import project.lavanderia.model.TabelPelangganModel;
+import project.lavanderia.service.PelangganDao;
 
 /**
  *
@@ -43,6 +45,8 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
      * Creates new form TambahAntrianView
      */
     public TambahAntrianView() {
+        model2 = new TabelPelangganModel();
+        
         model = new PelangganModel();
         model.setListener(this);
         
@@ -511,5 +515,10 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
     public void onUpdate(Pelanggan pelanggan) {
         int index = TablePelanggan.getSelectedRow();
         model2.set(index, pelanggan);
+    }
+    
+    public void loadDatabase() throws SQLException, pelangganException {
+        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
+        model2.setList(dao.selectAllPelanggan());
     }
 }

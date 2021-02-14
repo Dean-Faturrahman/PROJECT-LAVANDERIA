@@ -19,6 +19,7 @@ public interface PelangganListener {
     //parameter dari entity database pelanggan
     public void onInsert(Pelanggan pelanggan);
     
+    //tidak ada parameter
     public void onDelete();
     
     //parameter dari entity database pelanggan
