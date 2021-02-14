@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package project.lavanderia.view;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -212,7 +214,25 @@ public class AmbilPesananView extends javax.swing.JPanel {
     }//GEN-LAST:event_tabelDataPesananComponentShown
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        try{
+            int selectedRow = tabelDataPesanan.getSelectedRow();
+            Object rowID = model.getValueAt(selectedRow,0);
+            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
+                          + "(SELECT `NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
+            
+            String delete = "DELETE FROM pelanggan WHERE NOID = "+ rowID +"";
+            
+            Connection conn = LavanderiaDatabase.getConnection();
+            PreparedStatement preparedStmt = conn.prepareStatement(sql);
+            PreparedStatement PS2 = conn.prepareStatement(delete);
+            preparedStmt.execute();
+            PS2.execute();
+            JOptionPane.showMessageDialog(null, "Data dengan ID "+ rowID + "sudah di ambil");
 
+            
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jPanel1MousePressed
 
 
@@ -224,4 +244,6 @@ public class AmbilPesananView extends javax.swing.JPanel {
     private javax.swing.JTable tabelDataPesanan;
     private javax.swing.JTextField txtCari;
     // End of variables declaration//GEN-END:variables
+
+    
 }
