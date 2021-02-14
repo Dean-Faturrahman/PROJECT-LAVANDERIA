@@ -9,9 +9,9 @@ import java.util.Objects;
 
 /**
  *
- * @author Dean
+ * @author ryzen
  */
-public class Pelanggan {
+public class Pesanan {
     private int noid;
     private String nama;
     private String alamat;
@@ -19,18 +19,6 @@ public class Pelanggan {
     private String jenis;
     private double berat;
     private double harga;
-
-    public Pelanggan() {
-    }
-
-    public Pelanggan(String nama, String alamat, String telp, String jenis, double berat) {
-        this.nama = nama;
-        this.alamat = alamat;
-        this.telp = telp;
-        this.jenis = jenis;
-        this.berat = berat;
-    }
-    
 
     public int getNoid() {
         return noid;
@@ -80,28 +68,26 @@ public class Pelanggan {
         this.berat = berat;
     }
 
-    public double getHarga() {        
+    public double getHarga() {
         return harga;
     }
 
-    public void setHarga(double harga) { 
-        this.harga = harga;        
+    public void setHarga(double harga) {
+        this.harga = harga;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.noid;
-        hash = 89 * hash + Objects.hashCode(this.nama);
-        hash = 89 * hash + Objects.hashCode(this.alamat);
-        hash = 89 * hash + Objects.hashCode(this.telp);
-        hash = 89 * hash + Objects.hashCode(this.jenis);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.berat) ^ (Double.doubleToLongBits(this.berat) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.harga) ^ (Double.doubleToLongBits(this.harga) >>> 32));
+        hash = 59 * hash + this.noid;
+        hash = 59 * hash + Objects.hashCode(this.nama);
+        hash = 59 * hash + Objects.hashCode(this.alamat);
+        hash = 59 * hash + Objects.hashCode(this.telp);
+        hash = 59 * hash + Objects.hashCode(this.jenis);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.berat) ^ (Double.doubleToLongBits(this.berat) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.harga) ^ (Double.doubleToLongBits(this.harga) >>> 32));
         return hash;
     }
-
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -114,14 +100,14 @@ public class Pelanggan {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Pelanggan other = (Pelanggan) obj;
+        final Pesanan other = (Pesanan) obj;
         if (this.noid != other.noid) {
             return false;
         }
-        if (this.berat != other.berat) {
+        if (Double.doubleToLongBits(this.berat) != Double.doubleToLongBits(other.berat)) {
             return false;
         }
-        if (this.harga != other.harga) {
+        if (Double.doubleToLongBits(this.harga) != Double.doubleToLongBits(other.harga)) {
             return false;
         }
         if (!Objects.equals(this.nama, other.nama)) {
@@ -138,5 +124,6 @@ public class Pelanggan {
         }
         return true;
     }
+    
     
 }

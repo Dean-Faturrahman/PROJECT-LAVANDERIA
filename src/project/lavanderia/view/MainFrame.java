@@ -11,7 +11,6 @@ package project.lavanderia.view;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private AmbilPesananView view;
     /**
      * Creates new form MainFrame
      */
@@ -44,10 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         TambahPesananPanel = new javax.swing.JPanel();
         tambahAntrianView1 = new project.lavanderia.view.TambahAntrianView();
         DataPesananPanel = new javax.swing.JPanel();
-        dataPesananView1 = new project.lavanderia.view.DataPesananView();
+        dataPesananView2 = new project.lavanderia.view.DataPesananView();
         AmbilPesananPanel = new javax.swing.JPanel();
-        ambilPesananView1 = new project.lavanderia.view.AmbilPesananView();
+        ambilPesananView2 = new project.lavanderia.view.AmbilPesananView();
         PesananTerambilPanel = new javax.swing.JPanel();
+        dataTerambilView1 = new project.lavanderia.view.DataTerambilView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -230,21 +230,23 @@ public class MainFrame extends javax.swing.JFrame {
 
         TambahPesananPanel.setBackground(new java.awt.Color(250, 251, 255));
 
+        tambahAntrianView1.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout TambahPesananPanelLayout = new javax.swing.GroupLayout(TambahPesananPanel);
         TambahPesananPanel.setLayout(TambahPesananPanelLayout);
         TambahPesananPanelLayout.setHorizontalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TambahPesananPanelLayout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addGap(101, 101, 101)
+                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         TambahPesananPanelLayout.setVerticalGroup(
             TambahPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TambahPesananPanelLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(tambahAntrianView1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         BGPanel.add(TambahPesananPanel, "card3");
@@ -255,16 +257,16 @@ public class MainFrame extends javax.swing.JFrame {
         DataPesananPanel.setLayout(DataPesananPanelLayout);
         DataPesananPanelLayout.setHorizontalGroup(
             DataPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DataPesananPanelLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(dataPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataPesananPanelLayout.createSequentialGroup()
+                .addContainerGap(157, Short.MAX_VALUE)
+                .addComponent(dataPesananView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146))
         );
         DataPesananPanelLayout.setVerticalGroup(
             DataPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataPesananPanelLayout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addComponent(dataPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dataPesananView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(166, Short.MAX_VALUE))
         );
 
@@ -276,17 +278,17 @@ public class MainFrame extends javax.swing.JFrame {
         AmbilPesananPanel.setLayout(AmbilPesananPanelLayout);
         AmbilPesananPanelLayout.setHorizontalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmbilPesananPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(ambilPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AmbilPesananPanelLayout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(ambilPesananView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(121, 121, 121))
         );
         AmbilPesananPanelLayout.setVerticalGroup(
             AmbilPesananPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AmbilPesananPanelLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(ambilPesananView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(90, 90, 90)
+                .addComponent(ambilPesananView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         BGPanel.add(AmbilPesananPanel, "card5");
@@ -297,11 +299,17 @@ public class MainFrame extends javax.swing.JFrame {
         PesananTerambilPanel.setLayout(PesananTerambilPanelLayout);
         PesananTerambilPanelLayout.setHorizontalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1018, Short.MAX_VALUE)
+            .addGroup(PesananTerambilPanelLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(dataTerambilView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         PesananTerambilPanelLayout.setVerticalGroup(
             PesananTerambilPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(PesananTerambilPanelLayout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(dataTerambilView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         BGPanel.add(PesananTerambilPanel, "card6");
@@ -413,8 +421,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel TambahBtn;
     private javax.swing.JPanel TambahPesananPanel;
     private javax.swing.JPanel TerambilBtn;
-    private project.lavanderia.view.AmbilPesananView ambilPesananView1;
-    private project.lavanderia.view.DataPesananView dataPesananView1;
+    private project.lavanderia.view.AmbilPesananView ambilPesananView2;
+    private project.lavanderia.view.DataPesananView dataPesananView2;
+    private project.lavanderia.view.DataTerambilView dataTerambilView1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

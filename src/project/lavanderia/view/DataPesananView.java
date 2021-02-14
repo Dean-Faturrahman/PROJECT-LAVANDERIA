@@ -10,11 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import project.lavanderia.controller.PelangganController;
-import project.lavanderia.controller.TabelPelangganModel;
+import project.lavanderia.model.TabelPelangganModel;
 import project.lavanderia.database.LavanderiaDatabase;
 import project.lavanderia.entity.Pelanggan;
-import project.lavanderia.model.PelangganModel;
 
 /**
  *
@@ -44,7 +42,6 @@ public class DataPesananView extends javax.swing.JPanel {
             while(res.next()){
                 pelanggan = new Pelanggan();
                 pelanggan.setNoid(res.getInt("NOID"));
-                pelanggan.setTanggal(res.getString("TANGGAL"));
                 pelanggan.setNama(res.getString("NAMA"));
                 pelanggan.setAlamat(res.getString("ALAMAT"));
                 pelanggan.setTelp(res.getString("TELP"));

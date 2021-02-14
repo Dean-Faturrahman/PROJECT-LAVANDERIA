@@ -22,8 +22,8 @@ import project.lavanderia.service.PelangganDao;
 public class PelangganDaoImpl implements PelangganDao{
     private Connection connection;
     private final String insertPelanggan = "INSERT INTO PELANGGAN"
-            + " (TANGGAL, NAMA, ALAMAT, TELP, JENIS, BERAT, HARGA) VALUES"
-            + " (?,?,?,?,?,?,?)";
+            + " (NAMA, ALAMAT, TELP, JENIS, BERAT, HARGA) VALUES"
+            + " (?,?,?,?,?,?)";
     
     public PelangganDaoImpl(Connection connection) {
         this.connection = connection;
@@ -35,14 +35,13 @@ public class PelangganDaoImpl implements PelangganDao{
         
         try {
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement(insertPelanggan);            
-            statement.setString(1, pelanggan.getTanggal());
-            statement.setString(2, pelanggan.getNama());
-            statement.setString(3, pelanggan.getAlamat());
-            statement.setString(4, pelanggan.getTelp());
-            statement.setString(5, pelanggan.getJenis());
-            statement.setDouble(6, pelanggan.getBerat());
-            statement.setDouble(7, pelanggan.getHarga());
+            statement = connection.prepareStatement(insertPelanggan);
+            statement.setString(1, pelanggan.getNama());
+            statement.setString(2, pelanggan.getAlamat());
+            statement.setString(3, pelanggan.getTelp());
+            statement.setString(4, pelanggan.getJenis());
+            statement.setDouble(5, pelanggan.getBerat());
+            statement.setDouble(6, pelanggan.getHarga());
             statement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {

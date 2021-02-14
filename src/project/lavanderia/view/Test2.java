@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import project.lavanderia.controller.TabelPelangganModel;
+import project.lavanderia.model.TabelPelangganModel;
 import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.database.LavanderiaDatabase;
 
@@ -203,20 +203,20 @@ public class Test2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tabelDataPesananComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tabelDataPesananComponentShown
+        
+    }//GEN-LAST:event_tabelDataPesananComponentShown
+
     private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
         String key = txtCari.getText();
         System.out.println(key);
-
+        
         if(key!=""){
             cariData(key);
         } else {
             getData();
         }
     }//GEN-LAST:event_txtCariKeyReleased
-
-    private void tabelDataPesananComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tabelDataPesananComponentShown
-
-    }//GEN-LAST:event_tabelDataPesananComponentShown
 
     /**
      * @param args the command line arguments

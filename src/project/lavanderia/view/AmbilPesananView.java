@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import project.lavanderia.controller.TabelPelangganModel;
+import project.lavanderia.model.TabelPelangganModel;
 import project.lavanderia.entity.Pelanggan;
 import project.lavanderia.database.LavanderiaDatabase;
 /**
@@ -23,15 +23,17 @@ public class AmbilPesananView extends javax.swing.JPanel {
     private TabelPelangganModel model;
     private Pelanggan pelanggan;
     private DefaultTableModel tabModel;
+    private String key;
 
+    
     /**
      * Creates new form AmbilPesananView
      */
     public AmbilPesananView() {
         initComponents();
         model = new TabelPelangganModel();
-        tabelDataPesanan.setModel(model);        
-        getData();
+        tabelDataPesanan.setModel(model);
+        getData();        
     }
 
     public void getData( ){
@@ -42,7 +44,6 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 pelanggan = new Pelanggan();
                 pelanggan.setNoid(res.getInt("NOID"));
-                pelanggan.setTanggal(res.getString("TANGGAL"));
                 pelanggan.setNama(res.getString("NAMA"));
                 pelanggan.setAlamat(res.getString("ALAMAT"));
                 pelanggan.setTelp(res.getString("TELP"));
@@ -60,7 +61,8 @@ public class AmbilPesananView extends javax.swing.JPanel {
     private void cariData(String key){
         try{
             
-            Object[] judul_kolom = {"NOID", "TANGGAL", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
+            
+            Object[] judul_kolom = {"NOID", "NAMA", "ALAMAT", "TELP", "JENIS", "BERAT", "HARGA"};
             tabModel=new DefaultTableModel(null,judul_kolom);
             tabelDataPesanan.setModel(tabModel);
             
@@ -70,7 +72,6 @@ public class AmbilPesananView extends javax.swing.JPanel {
             while(res.next()){
                 Object[] data={
                     res.getString("NOID"),
-                    res.getString("TANGGAL"),
                     res.getString("NAMA"),
                     res.getString("ALAMAT"),
                     res.getString("TELP"),
@@ -83,10 +84,6 @@ public class AmbilPesananView extends javax.swing.JPanel {
         } catch (Exception ex) {
         System.err.println(ex.getMessage());
         }
-    }
-    
-    private void ambilData() throws Exception{
-      
     }
     
     /**
@@ -201,7 +198,7 @@ public class AmbilPesananView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
-        String key = txtCari.getText();
+        key = txtCari.getText();
         System.out.println(key);
 
         if(key!=""){
@@ -219,8 +216,8 @@ public class AmbilPesananView extends javax.swing.JPanel {
         try{
             int selectedRow = tabelDataPesanan.getSelectedRow();
             Object rowID = model.getValueAt(selectedRow,0);
-            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
-                          + "(SELECT `NOID`,`TANGGAL`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
+            String sql  = "INSERT INTO pesanan_ambil (`NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA`)"
+                          + "(SELECT `NOID`,`NAMA`,`ALAMAT`,`TELP`,`JENIS`,`BERAT`,`HARGA` FROM pelanggan WHERE NOID = "+rowID+")";
             
             String delete = "DELETE FROM pelanggan WHERE NOID = "+ rowID +"";
             

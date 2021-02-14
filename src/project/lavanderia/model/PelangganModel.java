@@ -24,7 +24,6 @@ public class PelangganModel {
     private String jenis;
     private double berat;
     private double harga;
-    private String tanggal;
     private PelangganListener listener;
 
     public PelangganListener getListener() {
@@ -97,14 +96,6 @@ public class PelangganModel {
         this.harga = harga;
         fireOnChange();
     }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
     
     protected void fireOnChange() {
         if (listener != null){
@@ -140,7 +131,6 @@ public class PelangganModel {
         pelanggan.setJenis(jenis);        
         pelanggan.setBerat(berat);
         pelanggan.setHarga(harga);
-        pelanggan.setTanggal(tanggal);
         
         dao.insertPelanggan(pelanggan);
         fireOnInsert(pelanggan);
@@ -162,11 +152,7 @@ public class PelangganModel {
         fireOnUpdate(pelanggan);
     }
     
-    public void ambilPelanggan() throws SQLException, pelangganException{
-        PelangganDao dao = LavanderiaDatabase.getPelangganDao();
-        
-        
-    }
+
     
     
     public void deletePelanggan() throws SQLException, pelangganException{
