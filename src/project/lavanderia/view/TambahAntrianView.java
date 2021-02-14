@@ -152,6 +152,7 @@ public class TambahAntrianView extends javax.swing.JPanel implements PelangganLi
             }
         });
 
+        txtHarga.setEditable(false);
         txtHarga.setBackground(new java.awt.Color(227, 237, 246));
         txtHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
